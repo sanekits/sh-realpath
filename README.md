@@ -41,3 +41,6 @@ function that calls the system `readlink(1)` if it exists.  Otherwise it uses
 `stat(1)` to emulate the same functionality.  In contrast to the functions in
 the previous section, you may pass `--` as the first argument, since you may be
 calling the system `readlink(1)`.
+
+## See also
+[This stackoverflow discussion](https://stackoverflow.com/a/22971167/237059)
