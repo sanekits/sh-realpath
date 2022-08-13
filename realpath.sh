@@ -1,4 +1,5 @@
 #!/bin/sh
+# See https://github.com/sanekits/sh-realpath, forked from https://github.com/mkropat/sh-realpath
 
 realpath() {
     canonicalize_path "$(resolve_symlinks "$1")"
@@ -108,4 +109,12 @@ _gnu_stat_readlink() {
 
 _bsd_stat_readlink() {
     stat -f %Y -- "$1" 2>/dev/null
+}
+
+[ -z "$sourceMe" ] && {
+    if [ "$*" = "--version" ]; then
+        echo '1.0.1'
+        exit 0
+    fi
+    readlink "$@"
 }
